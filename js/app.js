@@ -32,17 +32,18 @@ var Player = function() {
 }
 
 // Update player position by listening to keys pressed
+// restricting the player from moving off canvas
 Player.prototype.update = function() {
-    if(this.key === 'left') {
+    if(this.key === 'left' && this.x > 0) {
         this.x = this.x - 100;
     }
-    else if(this.key === 'right') {
+    else if(this.key === 'right' && this.x < 400) {
         this.x = this.x + 100;
     }
-    else if(this.key === 'up') {
+    else if(this.key === 'up' && this.y > 0) {
         this.y = this.y - 85;
     }
-    else if(this.key === 'down') {
+    else if(this.key === 'down' && this.y < 400) {
         this.y = this.y + 85;
     }
     this.key = null;
