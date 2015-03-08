@@ -47,11 +47,23 @@ Player.prototype.update = function() {
         this.y = this.y + 85;
     }
     this.key = null;
+
+    // If player crosses the water, reset the player
+    if (this.y < 0) {
+        this.reset();
+        // update score here!
+    }
 }
 
 // Method for storing key input in the object
 Player.prototype.handleInput = function(e) {
     this.key = e;
+}
+
+// Method for resetting the player to initial position
+Player.prototype.reset = function() {
+    this.x = 200;
+    this.y = 400;
 }
 
 // Intantiate the player for the game
