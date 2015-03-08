@@ -17,7 +17,12 @@ Enemy.prototype.update = function(dt){
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x += this.speed * dt;
+    if (this.x <= 505) {
+        this.x += this.speed * dt;
+    }
+    else {
+        this.x = -10;
+    }
 }
 
 // Draw the enemy on the screen, required method for game
@@ -36,16 +41,16 @@ var Player = function() {
 
 Player.prototype.update = function() {
     if(this.key === 'left') {
-        this.x = this.x - 30;
+        this.x = this.x - 100;
     }
     else if(this.key === 'right') {
-        this.x = this.x + 30;
+        this.x = this.x + 100;
     }
     else if(this.key === 'up') {
-        this.y = this.y - 30;
+        this.y = this.y - 85;
     }
     else if(this.key === 'down') {
-        this.y = this.y + 30;
+        this.y = this.y + 85;
     }
     this.key = null;
 }
@@ -64,7 +69,7 @@ Player.prototype.render = function() {
 
 var player = new Player();
 
-var allEnemies = [new Enemy(-2,100)];
+var allEnemies = [new Enemy(-10,100)];
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
