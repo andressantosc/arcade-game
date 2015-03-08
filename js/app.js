@@ -69,10 +69,11 @@ Player.prototype.render = function() {
 
 var player = new Player();
 
-var allEnemies = [new Enemy(-10,100)];
+// Instantiate three Enemy objects to start in the three stone rows.
+var allEnemies = [new Enemy(-10, 55), new Enemy(-10, 140), new Enemy(-10, 225)];
 
 // This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
+// Player.handleInput() method.
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
