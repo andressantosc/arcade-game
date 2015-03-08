@@ -4,25 +4,18 @@ Object.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
-// Enemies our player must avoid
+// Create class for Enemies our player must avoid
 var Enemy = function(x, y){
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
     this.speed = 190;
 }
 
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
+// Update the enemy's position
 Enemy.prototype.update = function(dt){
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
+    // Updates position by 190 px per second. If it leaves
+    // the canvas, it returns to the original position. 
     if (this.x <= 505) {
         this.x += this.speed * dt;
     }
@@ -31,15 +24,14 @@ Enemy.prototype.update = function(dt){
     }
 }
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+// Create class for the player
 var Player = function() {
     this.sprite = 'images/char-boy.png';
     this.x = 200;
     this.y = 400;
 }
 
+// Update player position by listening to keys pressed
 Player.prototype.update = function() {
     if(this.key === 'left') {
         this.x = this.x - 100;
@@ -56,20 +48,18 @@ Player.prototype.update = function() {
     this.key = null;
 }
 
+// Method for storing key input in the object
 Player.prototype.handleInput = function(e) {
     this.key = e;
 }
 
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
-
+// Intantiate the player for the game
 var player = new Player();
 
 // Instantiate three Enemy objects to start in the three stone rows.
 var allEnemies = [new Enemy(-10, 55), new Enemy(-10, 140), new Enemy(-10, 225)];
 
-// This listens for key presses and sends the keys to your
+// This listens for key presses and sends the keys to
 // Player.handleInput() method.
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
