@@ -1,3 +1,9 @@
+// Both the player object and the Enemy object use the same render method. 
+// Used delegation so that each object can access it.
+Object.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+}
+
 // Enemies our player must avoid
 var Enemy = function(x, y){
     // Variables applied to each of our instances go here,
@@ -23,11 +29,6 @@ Enemy.prototype.update = function(dt){
     else {
         this.x = -10;
     }
-}
-
-// Draw the enemy on the screen, required method for game
-Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
 // Now write your own player class
@@ -57,10 +58,6 @@ Player.prototype.update = function() {
 
 Player.prototype.handleInput = function(e) {
     this.key = e;
-}
-
-Player.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
 // Now instantiate your objects.
