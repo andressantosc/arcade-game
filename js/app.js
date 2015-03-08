@@ -54,13 +54,17 @@ Player.prototype.handleInput = function(e) {
     this.key = e;
 }
 
+Player.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+}
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
 var player = new Player();
 
-var allEnemies = [];
+var allEnemies = [new Enemy(-2,100)];
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
