@@ -1,5 +1,10 @@
 // Delcared global variable score
 var score = 0;
+playerSprites = ['images/char-boy.png', 
+                'images/char-cat-girl.png', 
+                'images/char-horn-girl.png', 
+                'images/char-pink-girl.png',
+                'images/char-princess-girl.png'];
 
 // Both the player object and the Enemy object use the same render method. 
 // Used delegation so that each object can access it.
@@ -13,7 +18,7 @@ var Enemy = function(x, y){
     this.x = x;
     this.y = y;
     // Make the speed be a random number between 150 and 350
-    this.speed = Math.floor((Math.random() * 350) + 150);;
+    this.speed = Math.floor((Math.random() * 350) + 150);
 }
 
 // Update the enemy's position
@@ -82,6 +87,8 @@ Player.prototype.handleInput = function(e) {
 Player.prototype.reset = function() {
     this.x = 200;
     this.y = 400;
+    // The player resets with a random new sprite!
+    this.sprite = playerSprites[Math.floor(Math.random()*playerSprites.length)];
 }
 
 // Intantiate the player for the game
