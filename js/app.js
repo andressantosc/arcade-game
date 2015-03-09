@@ -22,6 +22,17 @@ Enemy.prototype.update = function(dt){
     else {
         this.x = -10;
     }
+
+    // Check for collisions
+    // First check if player is within y distance
+    if (player.y >= this.y - 50 && player.y <= this.y + 50) {
+        // Then check if player is within x distance
+        if (player.x >= this.x - 50 && player.x <= this.x + 50) {
+            // If true, collision occurs and the player resets
+            player.reset();
+            // update score here!
+        }
+    }
 }
 
 // Create class for the player
@@ -70,7 +81,7 @@ Player.prototype.reset = function() {
 var player = new Player();
 
 // Instantiate three Enemy objects to start in the three stone rows.
-var allEnemies = [new Enemy(-10, 55), new Enemy(-10, 140), new Enemy(-10, 225)];
+var allEnemies = [new Enemy(-10, 60), new Enemy(-10, 145), new Enemy(-10, 230)];
 
 // This listens for key presses and sends the keys to
 // Player.handleInput() method.
