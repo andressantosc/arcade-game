@@ -146,8 +146,8 @@ var Engine = (function(global) {
         renderEntities();
 
         // Puts a score label in the top left corner of canvas
-        ctx.fillText("Score: " + score, canvas.width - 100, 100);     
-        ctx.strokeText("Score: " + score, canvas.width - 100, 100);
+        ctx.fillText("Score: " + score, canvas.width - 80, 100);     
+        ctx.strokeText("Score: " + score, canvas.width - 80, 100);
     }
 
     /* This function is called by the render function and is called on each game
@@ -170,7 +170,6 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
     }
 
     /* Go ahead and load all of the images we know we're going to need to

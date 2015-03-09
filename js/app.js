@@ -35,7 +35,9 @@ Enemy.prototype.update = function(dt){
             // If true, collision occurs and the player resets
             player.reset();
             // Update score
-            score--;
+            if (score > 0) {
+                score--;
+            }
         }
     }
 }
