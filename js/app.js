@@ -9,12 +9,13 @@ var Enemy = function(x, y){
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
-    this.speed = 190;
+    // Make the speed be a random number between 150 and 350
+    this.speed = Math.floor((Math.random() * 350) + 150);;
 }
 
 // Update the enemy's position
 Enemy.prototype.update = function(dt){
-    // Updates position by 190 px per second. If it leaves
+    // Updates position by speed. If it leaves
     // the canvas, it returns to the original position. 
     if (this.x <= 505) {
         this.x += this.speed * dt;
