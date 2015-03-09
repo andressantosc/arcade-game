@@ -29,6 +29,13 @@ var Engine = (function(global) {
     canvas.height = 606;
     doc.body.appendChild(canvas);
 
+    // Set score label font properties
+    ctx.font = "24pt Impact";
+    ctx.textAlign = "center";
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 3;
+    ctx.fillStyle = "white";
+
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
      */
@@ -137,6 +144,10 @@ var Engine = (function(global) {
 
 
         renderEntities();
+
+        // Puts a score label in the top left corner of canvas
+        ctx.fillText("Score: " + score, canvas.width - 100, 100);     
+        ctx.strokeText("Score: " + score, canvas.width - 100, 100);
     }
 
     /* This function is called by the render function and is called on each game

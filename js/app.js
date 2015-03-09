@@ -1,3 +1,6 @@
+// Delcared global variable score
+var score = 0;
+
 // Both the player object and the Enemy object use the same render method. 
 // Used delegation so that each object can access it.
 Object.prototype.render = function() {
@@ -31,7 +34,8 @@ Enemy.prototype.update = function(dt){
         if (player.x >= this.x - 50 && player.x <= this.x + 50) {
             // If true, collision occurs and the player resets
             player.reset();
-            // update score here!
+            // Update score
+            score--;
         }
     }
 }
@@ -63,7 +67,7 @@ Player.prototype.update = function() {
     // If player crosses the water, reset the player
     if (this.y < 0) {
         this.reset();
-        // update score here!
+        score++;
     }
 }
 
