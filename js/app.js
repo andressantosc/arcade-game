@@ -1,6 +1,7 @@
-// Delcared global variable score
+// Delcared global variables
 var score = 0;
-playerSprites = ['images/char-boy.png', 
+// Declared array to generate random sprites in player reset method
+var playerSprites = ['images/char-boy.png', 
                 'images/char-cat-girl.png', 
                 'images/char-horn-girl.png', 
                 'images/char-pink-girl.png',
@@ -17,8 +18,8 @@ var Enemy = function(x, y){
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
-    // Make the speed be a random number between 150 and 350
-    this.speed = Math.floor((Math.random() * 350) + 150);
+    // Make the speed be a random number between 100 and 300
+    this.speed = Math.floor((Math.random() * 300) + 100);
 }
 
 // Update the enemy's position
@@ -39,7 +40,7 @@ Enemy.prototype.update = function(dt){
         if (player.x >= this.x - 50 && player.x <= this.x + 50) {
             // If true, collision occurs and the player resets
             player.reset();
-            // Update score
+            // And updates score
             if (score > 0) {
                 score--;
             }
