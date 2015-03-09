@@ -70,6 +70,10 @@ Player.prototype.update = function() {
     else if(this.key === 'down' && this.y < 400) {
         this.y = this.y + 85;
     }
+    // Change to a random sprite by pressing the space bar!
+    else if(this.key === 'space') {
+        this.sprite = playerSprites[Math.floor(Math.random()*playerSprites.length)];
+    }
     this.key = null;
 
     // If player crosses the water, reset the player
@@ -105,7 +109,8 @@ document.addEventListener('keyup', function(e) {
         37: 'left',
         38: 'up',
         39: 'right',
-        40: 'down'
+        40: 'down',
+        32: 'space'
     };
 
     player.handleInput(allowedKeys[e.keyCode]);
