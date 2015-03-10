@@ -1,5 +1,7 @@
 // Delcared global variables
 var score = 0;
+var spriteNum = 0;
+
 // Declared array to generate random sprites in player reset method
 var playerSprites = ['images/char-boy.png', 
                 'images/char-cat-girl.png', 
@@ -70,9 +72,15 @@ Player.prototype.update = function() {
     else if(this.key === 'down' && this.y < 400) {
         this.y = this.y + 85;
     }
-    // Change to a random sprite by pressing the space bar!
+    // Change the sprite by pressing the space bar!
     else if(this.key === 'space') {
-        this.sprite = playerSprites[Math.floor(Math.random()*playerSprites.length)];
+    	if (spriteNum < 4) {
+    		spriteNum++;
+    		this.sprite = playerSprites[spriteNum];
+      	} else {
+    		spriteNum = 0;
+    		this.sprite = playerSprites[spriteNum];
+    	}
     }
     this.key = null;
 
