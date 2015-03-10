@@ -1,5 +1,6 @@
 // Delcared global variables
 var score = 0;
+// Index for changing Sprites
 var spriteNum = 0;
 
 // Declared array to generate random sprites in player reset method
@@ -74,7 +75,7 @@ Player.prototype.update = function() {
     }
     // Change the sprite by pressing the space bar!
     else if(this.key === 'space') {
-    	if (spriteNum < 4) {
+    	if (spriteNum < playerSprites.length - 1) {
     		spriteNum++;
     		this.sprite = playerSprites[spriteNum];
       	} else {
@@ -100,8 +101,6 @@ Player.prototype.handleInput = function(e) {
 Player.prototype.reset = function() {
     this.x = 200;
     this.y = 400;
-    // The player resets with a random new sprite!
-    this.sprite = playerSprites[Math.floor(Math.random()*playerSprites.length)];
 }
 
 // Intantiate the player for the game
