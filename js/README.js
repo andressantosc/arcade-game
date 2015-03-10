@@ -4,7 +4,7 @@ To start the game, you only need to open index.html,
 found in the main folder.
 
 Use arrow keys to move the player.
-Use space key to change to a random character.
+Use space key to change the character.
 You need to avoid hiting bugs.
 The object of the game is to get to the water.
 
