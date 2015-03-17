@@ -23,11 +23,15 @@ var Engine = (function(global) {
         win = global.window,
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
+        instructions = doc.createElement('p'),
         lastTime;
 
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
+    
+    instructions.innerHTML = "Use arrow keys to move and the SPACE bar to change character. You gain points by reaching the water and loose points by getting hit by a bug.";
+    doc.body.appendChild(instructions);
 
     // Set score label font properties
     ctx.font = "24pt Impact";
